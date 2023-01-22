@@ -7,9 +7,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-img = cv2.imread('image/text.jpg')
+img = cv2.imread('image/sign.jpg')
 
-reader = easyocr.Reader(['en'], gpu = False)
+reader = easyocr.Reader(['en', 'ko'], gpu = False)
 
 text_ = reader.readtext(img)
 
@@ -23,7 +23,7 @@ for t_, t in enumerate(text_):
     if score > threshold:
 
         cv2.rectangle(img, bbox[0], bbox[2], (0, 255, 0), 5)
-        cv2.putText(img, text, bbox[0], cv2.FONT_HERSHEY_COMPLEX, 0.65, (255, 0, 0), 2)
+        cv2.putText(img, text, bbox[0], cv2.FONT_HERSHEY_COMPLEX, 2, (255, 0, 0), 2)
 
 plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
 plt.show()
