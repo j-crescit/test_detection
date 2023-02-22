@@ -9,7 +9,7 @@ import numpy as np
 
 img = cv2.imread('image/sign.jpg')
 
-reader = easyocr.Reader(['en'], gpu = False)
+reader = easyocr.Reader(['en', 'kr'], gpu = False)
 
 text_ = reader.readtext(img)
 
